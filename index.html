@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaGuide AI by Ifham Bashir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>DermaGuide AI by Ifham Bashir</h1>
+    </header>
+
+    <main class="container">
+        <section id="skin-type" class="section">
+            <h2>Select Your Fitzpatrick Skin Type</h2>
+            <div class="card-grid" id="skin-type-grid">
+                <div class="card" id="type-1">Type I</div>
+                <div class="card" id="type-2">Type II</div>
+                <div class="card" id="type-3">Type III</div>
+                <div class="card" id="type-4">Type IV</div>
+                <div class="card" id="type-5">Type V</div>
+                <div class="card" id="type-6">Type VI</div>
+            </div>
+        </section>
+
+        <section id="age-pathway" class="section">
+            <h2>Select Your Age Pathway</h2>
+            <div class="card-grid" id="age-pathway-grid">
+                <div class="card" id="age-teens">Teens (13-19)</div>
+                <div class="card" id="age-young">Young Adult (20-29)</div>
+                <div class="card" id="age-adult">Adult (30-49)</div>
+                <div class="card" id="age-mature">Mature (50+)</div>
+            </div>
+        </section>
+
+        <section id="skin-concerns" class="section">
+            <h2>Skin Concerns</h2>
+            <div class="checkbox-grid" id="concerns-grid">
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="acne"> Acne</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="aging"> Aging</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="dark-spots"> Dark Spots</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="dryness"> Dryness</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="dullness"> Dullness</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="redness"> Redness</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="sensitivity"> Sensitivity</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="large-pores"> Large Pores</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="blackheads"> Blackheads</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="fine-lines"> Fine Lines</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="uneven-texture"> Uneven Texture</label>
+                <label class="checkbox-item"><input type="checkbox" name="concern" value="hyperpigmentation"> Hyperpigmentation</label>
+            </div>
+        </section>
+
+        <section id="triggers" class="section">
+            <h2>Triggers & Sensitivities</h2>
+            <div class="checkbox-grid" id="triggers-grid">
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="fragrance"> Fragrance</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="alcohol"> Alcohol</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="essential-oils"> Essential Oils</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="sulfates"> Sulfates</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="parabens"> Parabens</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="silicones"> Silicones</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="niacinamide"> Niacinamide</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="vitamin-c"> Vitamin C</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="retinoids"> Retinoids</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="aha-bha"> AHA/BHA</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="benzoyl-peroxide"> Benzoyl Peroxide</label>
+                <label class="checkbox-item"><input type="checkbox" name="trigger" value="none"> None</label>
+            </div>
+        </section>
+
+        <section id="preferences" class="section">
+            <h2>Additional Preferences</h2>
+            
+            <div class="dropdown-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                    <option value="">Select Budget</option>
+                    <option value="budget">Budget-Friendly</option>
+                    <option value="mid">Mid-Range</option>
+                    <option value="luxury">Luxury</option>
+                </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="brand-preference">Brand Preference</label>
+                <select id="brand-preference" name="brand-preference">
+                    <option value="">Select Preference</option>
+                    <option value="drugstore">Drugstore</option>
+                    <option value="dermatologist">Dermatologist Recommended</option>
+                    <option value="kbeauty">K-Beauty</option>
+                    <option value="clean">Clean Beauty</option>
+                    <option value="no-preference">No Preference</option>
+                </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="climate">Climate</label>
+                <select id="climate" name="climate">
+                    <option value="">Select Climate</option>
+                    <option value="tropical">Tropical/Humid</option>
+                    <option value="dry">Dry/Arid</option>
+                    <option value="temperate">Temperate</option>
+                    <option value="cold">Cold</option>
+                    <option value="variable">Variable</option>
+                </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="non-binary">Non-binary</option>
+                    <option value="prefer-not-say">Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox" id="pregnancy" name="pregnancy">
+                    Pregnant or Breastfeeding
+                </label>
+            </div>
+        </section>
+
+        <section id="action" class="section">
+            <button id="generate-btn" class="generate-button">Generate My Skincare Routine</button>
+        </section>
+
+        <section id="results" class="section results-section">
+            <div id="results-content"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Created by Ifham Bashir — Class 12 | PCMB | AI Enthusiast</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
