@@ -1,0 +1,529 @@
+/* ==========================================
+   DermaGuide AI - Complete Stylesheet
+   Created by Ifham Bashir
+   ========================================== */
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette */
+    --primary-gradient: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --card-bg: #ffffff;
+    --text-primary: #2d3748;
+    --text-secondary: #718096;
+    --accent-green: #4CAF50;
+    --accent-red: #e53e3e;
+    --accent-orange: #ed8936;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--primary-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Header Styles
+   ========================================== */
+.site-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================
+   Container & Layout
+   ========================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.75rem;
+}
+
+/* ==========================================
+   Card Grid Layouts
+   ========================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+/* Specific grid for Fitzpatrick types (6 cards) */
+#skin-type-grid {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* Specific grid for age pathways (4 cards) */
+#age-pathway-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    background: var(--card-bg);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: #e2e8f0;
+}
+
+.card.selected {
+    border-color: var(--accent-green);
+    background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Warning badges for Fitzpatrick types IV-VI */
+#type-4::after,
+#type-5::after,
+#type-6::after {
+    content: "Higher Risk";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--accent-red);
+    color: white;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Type-specific colors */
+#type-1 { background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); }
+#type-2 { background: linear-gradient(135deg, #fffaf0 0%, #ffffff 100%); }
+#type-3 { background: linear-gradient(135deg, #fffff0 0%, #ffffff 100%); }
+#type-4 { background: linear-gradient(135deg, #fff8dc 0%, #ffffff 100%); }
+#type-5 { background: linear-gradient(135deg, #f0e68c 0%, #ffffff 100%); }
+#type-6 { background: linear-gradient(135deg, #deb887 0%, #ffffff 100%); }
+
+/* ==========================================
+   Checkbox Grid Styles
+   ========================================== */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f7fafc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    font-size: 0.95rem;
+}
+
+.checkbox-item:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-green);
+}
+
+.checkbox-item input[type="checkbox"]:checked + span,
+.checkbox-item:has(input:checked) {
+    background: #f0fff4;
+    border-color: var(--accent-green);
+    color: #22543d;
+}
+
+/* ==========================================
+   Dropdown & Form Styles
+   ========================================== */
+.dropdown-group {
+    margin-bottom: 1.5rem;
+}
+
+.dropdown-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.dropdown-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+}
+
+.dropdown-group select:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.dropdown-group select:hover {
+    border-color: #cbd5e0;
+}
+
+.checkbox-group {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fff5f5;
+    border-radius: 12px;
+    border: 2px solid #fed7d7;
+}
+
+.checkbox-group .checkbox-item {
+    background: transparent;
+    font-weight: 600;
+    color: var(--accent-red);
+}
+
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--accent-red);
+}
+
+/* ==========================================
+   Generate Button
+   ========================================== */
+.generate-button {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.generate-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.generate-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6), var(--shadow-hover);
+}
+
+.generate-button:hover::before {
+    left: 100%;
+}
+
+.generate-button:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   Results Section
+   ========================================== */
+.results-section {
+    display: none; /* Hidden by default */
+    background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+    border: 2px solid var(--accent-green);
+}
+
+.results-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#results-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-card h3 {
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.product-card .category {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.product-card .description {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Footer Styles
+   ========================================== */
+.site-footer {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.site-footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ==========================================
+   Responsive Design - Mobile First
+   ========================================== */
+
+/* Tablet Styles (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    #skin-type-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    #age-pathway-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Styles (< 768px) */
+@media screen and (max-width: 768px) {
+    .site-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 1rem 0.75rem;
+    }
+    
+    .section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .section h2 {
+        font-size: 1.25rem;
+    }
+    
+    /* Stack all cards on mobile */
+    .card-grid,
+    #skin-type-grid,
+    #age-pathway-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .card {
+        padding: 1.25rem 1rem;
+    }
+    
+    /* 2 columns for checkboxes on mobile */
+    .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .checkbox-item {
+        padding: 0.625rem;
+        font-size: 0.875rem;
+    }
+    
+    .generate-button {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    #results-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile Styles (< 480px) */
+@media screen and (max-width: 480px) {
+    .site-header {
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: 1.25rem 0.875rem;
+    }
+    
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dropdown-group select {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Loading State */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin: -12px 0 0 -12px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--accent-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.card:focus-visible,
+.checkbox-item:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent-green);
+    outline-offset: 2px;
+}
